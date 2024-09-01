@@ -1,0 +1,564 @@
+f<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: Georgia, serif;
+    }
+    header
+    {
+        z-index:999;
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        display:flex;
+        justify-content:space-between;
+        align-items: center;
+        padding:15px 200px;
+        transition:all 0.5 ease;
+    }
+    header .travel
+    {
+        color:white;
+        font-size:25px;
+        font-weight: bolder;
+        text-decoration: none;
+        
+    }
+    
+    header .navigation
+    {
+        position:relative;
+
+    }
+    .navigation-items a
+    {
+     position:relative;
+     text-decoration:none;
+     color:white;
+     font-size:20px;
+     font-weight:bold;
+     margin-left:30px; /*space between contents*/
+     /* transition:0.3s ease; */
+    }
+    .navigation-items a:before{
+        content: '';
+        position:absolute;
+        background:rgb(255, 255, 255);
+        width:0;
+        height:3px;
+        bottom:0;
+        left:0;
+        transition: all 0.5s ease;
+
+    }
+        .navigation-items a:hover:before
+        {
+         width:100%;
+
+        }
+    .navigation-items .header-button
+    {
+        display:inline-block;
+        margin-left:30px;
+    }
+section
+{
+    padding:20px 200px;
+}
+.home
+{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    background:#178386;
+}
+.home:before{
+    z-index:777;
+    content:'';
+    position:absolute;
+    background:rgba(3,96,251,0.3);
+    width: 100%;
+    height:100%;
+    top:0;
+    left:0;
+    
+}
+.home .text
+{
+    z-index:888;
+    color:white;
+    width:75%;
+    margin-top:50px;
+}
+.home .text h1
+{
+    /* font-size:xx-large; */
+    font-size:4em;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing: 3px;
+    line-height:50px;
+   margin-bottom:50px;
+
+}
+.home .text p
+{
+    margin-bottom:65px;
+    font-size:1.2em;
+}
+.home .text a
+{
+    background:White;
+    padding:15px 35px;
+    color:#138b8f;
+    font-size:1.1em;
+    font-weight:bold;
+    text-decoration:none;
+    border-radius:7px;
+}
+.home .media-icons
+{
+    z-index:999;
+    position:absolute;
+    right:30px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.home .media-icons a{
+    color:white;
+    font-size:1.6em;
+    transition:all 0.3s ease;
+
+}
+.home .media-icons a:hover
+{
+    transform:scale(1.3);
+}
+.home video
+{
+z-index:000;
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+.slider-navigation
+{
+    z-index:888;
+    position:relative;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    transform:translateY(80px);
+    margin-bottom:12px;
+
+}
+.slider-navigation .nav-btn
+{
+  width:12px;
+  height:12px;
+  background:white;
+  border-radius: 50%;
+  cursor:pointer;
+  box-shadow:0 0 2px rgba(255,255,255,0.5);
+  transition: all 0.3 ease;
+}
+.slider-navigation .nav-btn.active {
+  background: #2696E9; /* your desired color for the active button */
+}
+.slider-navigation .nav-btn:not(:last-child){
+    margin-right:20px;
+}
+.slider-navigation .nav-btn:hover{
+    transform:scale(1.2);
+}
+@media (max-width: 768px) {
+      header {
+        padding: 10px 50px;
+        justify-content: center;
+      }
+
+      .travel {
+        font-size: 20px;
+      }
+
+      .navigation {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+        cursor: pointer;
+      }
+
+      .home .text
+       {
+        width: 100%;
+        text-align: center;
+      }
+      .home .media-icons
+      {
+        text-align:right;
+      }
+
+      .home .text h1 {
+        font-size: 3em;
+      }
+
+      .slider-navigation {
+        justify-content: center;
+        margin-top: 20px;
+      }
+    }
+    .section-title
+    {
+        margin-bottom:60px;
+}
+
+.container1
+{
+    height:400px;
+    width:100%;
+    display:grid;
+    background:rgb(57, 4, 39);
+    grid-template-columns:1.2fr 1.2fr 1.2fr;
+    /* grid-template-rows: 1fr 1fr; */
+    grid-gap:20px 20px;
+
+}
+.box{
+        background:rgb(216, 150, 183);
+        height:300px;
+        width:300px;
+        align-content: center;
+        border:solid 2px brgb(0, 0, 0);
+        margin-top:40px;
+        margin-left:28px;
+        color:white;
+        text-align-last: center;
+        cursor:pointer;
+    }
+    .box:hover
+    {
+      transform:scale(0.9);
+      transition: 1.2s ease-in-out;
+      border-radius:30%;
+      color:rgb(233, 145, 215);
+    }
+    .box h2
+    {
+    margin-top:310px;
+    }
+    .box1
+{
+    background-image:url(image/explore.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius:10%;
+   
+}
+.box2
+{
+    background-image:url(image/destination.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius:10%;
+
+}
+.box3
+{
+    background-image:url(image/categories.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius:10%;
+
+}
+.rotate-box
+{
+  margin-top:10%;
+  position: relative;
+  margin-left:40%;
+  width:200px;
+  height:200px;
+  transform-style: preserve-3d;
+  animation: animate 20s linear infinite;
+  margin-bottom:15%;
+
+}
+.rotate-box span
+{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  transform-origin:center;
+  transform-style: preserve-3d;
+  transform:rotateY(calc(var(--i)*45deg))translateZ(400px);
+  -webkit-box-reflect:below 0px linear-gradient(transparent,transparent,#0004);
+}
+.roate-box span img
+{
+  position:absolute;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  object-fit: cover;
+}
+@keyframes animate
+{
+  0%{
+    transform:perspective(1000px) rotateY(0deg);
+  }
+  100%
+  {
+    transform:perspective(1000px) rotateY(360deg);
+  }
+}
+
+#home4 img
+{
+  height:350px;
+  width:280px;
+  color:black;
+
+}
+
+/* .container-card {
+    background:rgb(205, 118, 118);
+    border:2px solid;
+    display:grid;
+    grid-row: 1fr 1fr 1fr;
+}
+.card
+{
+  height:400px;
+  width:300px;
+} */
+.container-card
+{
+    height:800px;
+    width:900px;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+   grid-gap:10px 10px;
+    align-self: center;
+    margin-top:7%;
+
+}
+.container-card .card
+{
+  background:rgb(165, 57, 111);
+        height:350px;
+        width:280px;
+        text-align:center;
+        font-size:20px;
+        border:2px solid rgb(197, 48, 205);
+        background-repeat: no-repeat;
+    background-size: cover;
+}
+
+</style>
+</head>
+<body>
+ <header>
+ <a href="#" class="travel">TRAVEL</a>
+ <div class="navigation">
+ <div class="navigation-items">
+ <a href="#">Home</a>
+ <a href="#">Explore</a>
+  <a href="#" class="dropdown-toggle">Categories</a>
+  <div class="dropdown-menu">
+    <a href="#">Beaches</a>
+    <a href="#">Hikes</a>
+    <a href="#">Monuments</a>
+    <a href="#">Volcanoes</a>
+    <a href="#">Waterfalls</a>
+    <a href="#">Wildlife</a>
+  </div>
+<a href="#">Blogs</a>
+ <a href="#">Contact</a>
+ <div class="header-button">   
+<button class="btn btn-primary">Sign Up/In</button>
+  </div>
+ </div>
+ </div>
+ </header> 
+ 
+ <section class="home">
+    <video class="video-slide" src="image/slideshow.mp4" autoplay muted loop></video>
+    <video class="video-slide" src="image/beach.mp4" autoplay muted loop></video>
+    <video class="video-slide" src="image/hills2.mp4" autoplay muted loop></video>
+    <video class="video-slide" src="image/forest.mp4" autoplay muted loop></video>
+    <video class="video-slide" src="image/road.mp4" autoplay muted loop></video>
+    <div class="text">
+        <h1>Journey to New Horizons<br></h1>
+        <p>“Embark on a journey to discover the extraordinary. Explore new horizons, expand your mind, and ignite your passions. Let the unknown inspire you to step outside your comfort zone and create unforgettable memories. Every journey is a chance to rediscover yourself and the world around you.”</p>
+        <a href="#">Read More</a>
+    </div>
+    <div class="media-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+    <div class="slider-navigation">
+    <div class="nav-btn"></div>
+    <div class="nav-btn"></div>
+    <div class="nav-btn"></div>
+    <div class="nav-btn"></div>
+    <div class="nav-btn"></div>
+    </div>
+    <script>
+        const btns = document.querySelectorAll(".nav-btn");
+        const videos = document.querySelectorAll(".home .video-slide");
+  
+        let currentVideoIndex = 0;
+  
+        function showVideo(index) {
+          videos.forEach((video, i) => {
+            video.style.visibility = i === index ? 'visible' : 'hidden';
+          });
+  
+          btns.forEach((btn, i) => {
+            btn.classList.remove("active");
+          });
+  
+          btns[index].classList.add("active");
+          currentVideoIndex = index;
+        }
+  
+        // Show the first video on page load
+        showVideo(0);
+  
+        btns.forEach((btn, i) => {
+          btn.addEventListener("click", () => {
+            showVideo(i);
+          });
+        });
+  
+        // Optional: Autoplay (uncomment if desired)
+        // const playVideo = () => {
+        //   // ... your existing autoplay code ...
+        // };
+  
+        // setInterval(playVideo, 5000); // Change interval for autoplay speed
+      </script>
+ </section>
+ <section id="home2" class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col=12"></div>
+            <h1 class="text-uppercase fw-semibold display-1" style="font-size: 3em; text-align:center; margin-top:40px;">Explore beyond the ordinary.</h1>
+        </div>
+    </div>
+ </section>
+ <section class="features">
+    <div class="container1">
+        <div class="box box1"><h2>Blog</h2></div>
+        <div class="box box2"><h2>Destinations</h2></div>
+        <div class="box box3"><h2>Categories</h2></div>
+ </section>
+ <section id="home3">
+  <div class="container">
+      <div class="row">
+          <div class="col=12"></div>
+          <h1 class="text-uppercase fw-semibold display-1" style="font-size: 3em; text-align:center; margin-top:40px;">Featured Blogs</h1>
+      </div>
+      <div class="rotate-box">
+        <span style="--i:1"><img src="image/blog1.jpg" style="height:220px; width:220px;"></span>
+        <span style="--i:2"><img src="image/blog2.jpg" style="height:220px; width:220px;"></span>
+        <span style="--i:3"><img src="image/blog3.jpg" style="height:220px; width:220px;"></span>
+        <span style="--i:4"><img src="image/blog4.jpg" style="height:220px; width:220px;"></span>
+        <span style="--i:5"><img src="image/blog5.jpg" style="height:220px; width:220px;"></span>
+        <span style="--i:6"><img src="image/blog6.jpg" style="height:220px; width:220px;"></span>
+        <span style="--i:7"><img src="image/blog7.jpg" style="height:220px; width:220px;"></span>
+        <span style="--i:8"><img src="image/blog8.jpg" style="height:220px; width:220px;"></span>
+      </div>
+  </div>
+</section>
+<!-- <section id="home4">
+  <h1 class="text-uppercase fw-semibold display-1" style="font-size: 3em; text-align:center; margin-top:40px;">Famous Destinations</h1>
+  <div class="container-card">
+    <div class="card card1">
+      <img src="image/india.jpg" >
+      <div class="intro"><h1>India</h1>
+        <p><span>India, </span>aland of diverse cultures, stunning<br> landscapes, and ancient history. From<br> bustling cities to serene beaches.</p>
+       </div>
+    </div>
+    <div class="card card2">
+      <img src="image/hongkong.jpg" >
+      <div class="intro"><h1>Hongkong</h1>
+        <p><span>Hong Kong, </span>a vibrant metropolis, offers a unique blend of East and West.
+        Explore its bustling streets and admire the iconic skyline.</p>
+    </div>
+    <div class="card card3">
+      <img src="image/paris1.jpg" >
+      <div class="intro"><h1>Paris</h1>
+        <p><span>City of Lights </span>Paris, the romantic capital of France, is a city steeped in history and culture.</p>
+       </div>
+    </div>
+    <div class="card card4">
+      <img src="image/mountfuji.jpg" >
+      <div class="intro"><h1>Japan</h1>
+        <p><span>Japan </span>an island nation in East Asia, is renowned for its rich culture, technological advancements, and stunning natural beauty.</p>
+       </div>
+    </div>
+    <div class="card card5">
+      <img src="image/maldives.png" >
+      <div class="intro"><h1>Maldives</h1>
+        <p><span>A tropical heaven, </span>Maldvies is a island nation in the Indian Ocean, is renowned for its pristine beaches, crystal-clear waters, and luxurious resorts. 
+       </div>
+    </div>
+    <div class="card card6">
+      <img src="image/dubai.png" >
+      <div class="intro"><h1>Dubai</h1>
+        <p><span>Dubai </span>Dubai, a vibrant city in the United Arab Emirates, is known for its luxurious lifestyle, stunning architecture, and innovative attractions. </p>
+       </div>
+    </div>
+    <div class="card card7">
+      <img src="image/santorini.jpg" >
+      <div class="intro"><h1>Santorini</h1>
+        <p><span>Greece </span>Santorini, a Greek island in the Cyclades archipelago, is renowned for its stunning caldera, picturesque villages, and breathtaking sunsets. </p>
+       </div>
+    </div>
+    <div class="card card8">
+      <img src="image/iceland.jpg" >
+      <div class="intro"><h1>Iceland</h1>
+        <p><span>For offbeat travellers, </span>Iceland, a realm of stark contrasts, beckons the offbeat traveller with its fiery volcanoes and glacial landscapes.</p>
+       </div>
+    </div>
+  </div>
+</section> -->
+<section class="grid-card">
+<h1 class="text-uppercase fw-semibold display-1" style="font-size: 3em; text-align:center; margin-top:40px;">Famous Destinations</h1>
+<div class="container-card">
+<div class="card card1" style="background-image:url(image/india.jpg)"></div>
+<div class="card card1" style="background-image:url(image/hongkong.jpg)"></div>
+<div class="card card1" style="background-image:url(image/paris.jpg)"></div>
+<div class="card card1" style="background-image:url(image/mountfuji.jpg)"></div>
+<div class="card card1" style="background-image:url(image/maldives.png)"></div>
+<div class="card card1" style="background-image:url(image/dubai.png)"></div>
+<div class="card card1" style="background-image:url(image/santorini.jpg)"></div>
+<div class="card card1" style="background-image:url(image/iceland.jpg)"></div>
+</div>
+</section>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
